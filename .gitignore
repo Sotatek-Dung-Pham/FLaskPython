@@ -1,1 +1,4 @@
+.gitignore
 *__pychache__
+__pychache__
+get-pip.py
