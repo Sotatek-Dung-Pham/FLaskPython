@@ -1,0 +1,9 @@
+flask
+flask-sqlalchemy
+mysql-python
+flask-jwt-extended
+Flask-Script
+flask-bcrypt
+flask_wtf
+WTForms-Alchemy
+flask-login

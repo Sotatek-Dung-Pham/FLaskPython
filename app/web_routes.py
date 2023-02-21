@@ -1,0 +1,26 @@
+from app import app, render_template
+from controllers import web_user_controller
+
+@app.route('/', methods = ['GET'])
+def index():
+    return render_template('index.html')
+
+@app.route('/cart', methods = ['GET'])
+def cart():
+    return render_template('cart.html')
+
+@app.route('/login', methods = ['GET'])
+def login():
+    return web_user_controller.index_web_login()
+
+@app.route('/login', methods = ['POST'])
+def login_post():
+    return web_user_controller.web_login()
+
+@app.route('/logout', methods = ['GET'])
+def logout():
+    return web_user_controller.web_logout()
+
+@app.route('/signup', methods = ['POST'])
+def signup():
+    return web_user_controller.web_signup()
