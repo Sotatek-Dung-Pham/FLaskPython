@@ -1,3 +1,8 @@
+# does not ignore the gitignore file
 !.gitignore
-__pychache__*
+
+# ignore all directories with the name __pychache__
+**/__pycache__
+
+# ignore file get-pip.py
 get-pip.py
