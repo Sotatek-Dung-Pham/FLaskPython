@@ -2,7 +2,7 @@
 !.gitignore
 
 # ignore all directories with the name __pychache__
-**/__pychache__
+**/__pycache__
 
 # ignore file get-pip.py
 get-pip.py
