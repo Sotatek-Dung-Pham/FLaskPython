@@ -6,3 +6,7 @@
 
 # ignore file get-pip.py
 get-pip.py
+
+*.pyc
+
+migrations/versions/
