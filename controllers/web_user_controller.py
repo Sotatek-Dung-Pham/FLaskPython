@@ -1,7 +1,19 @@
 from flask import request, redirect, flash, render_template
 from flask_login import login_user, current_user, logout_user
 from flask_bcrypt import check_password_hash
+from flask_jwt_extended import create_access_token, create_refresh_token, get_jwt_identity
+from flask import session
 from services import user_service
+
+def web_index():
+    cart = None
+
+    if current_user.is_authenticated:
+        cart = user_service.count_item_cart(current_user.id)
+
+    products = user_service.get_all_product()
+
+    return render_template('index.html', products = products, cart = cart)
 
 def index_web_login():
     if current_user.is_authenticated:
@@ -22,12 +34,20 @@ def web_login():
         flash('Please check your email and password and try again.')
         return redirect('/login')
 
+    # generates the JWT Token
+    session["access_token"] = create_access_token(identity = user.public_id)
+
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember = remember)
+
     return redirect('/')
 
 def web_logout():
     logout_user()
+
+    if "access_token" in session:
+        session.pop("access_token")
+
     return redirect('/')
 
 def web_signup():

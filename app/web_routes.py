@@ -3,7 +3,7 @@ from controllers import web_user_controller
 
 @app.route('/', methods = ['GET'])
 def index():
-    return render_template('index.html')
+    return web_user_controller.web_index()
 
 @app.route('/cart', methods = ['GET'])
 def cart():

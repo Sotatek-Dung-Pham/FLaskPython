@@ -9,5 +9,11 @@ class Cart_item(db.Model):
     quantity = db.Column(db.Integer, nullable=True)
     status = db.Column(db.Boolean, nullable=True)
 
+    def __init__(self, cart_id, product_id, quantity, status):
+        self.cart_id = cart_id
+        self.product_id = product_id
+        self.quantity = quantity
+        self.status = status
+
     def __repr__(self):
         return '<id {}>'.format(self.id)

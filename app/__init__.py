@@ -22,7 +22,7 @@ def create_app(config_name):
     migrate.init_app(app, db, compare_type = True)
     login_manager.init_app(app)
 
-    from models import user, blacklist_token, product, cart, cart_items, order, order_detail
+    from models import user, blacklist_token, product, cart, cart_item, order, order_detail
 
     from app import api_routes
     from app import web_routes

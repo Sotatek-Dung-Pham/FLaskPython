@@ -76,3 +76,16 @@ def api_get_all_users():
         })
 
     return jsonify({'users': output})
+
+def api_cart_add():
+    product_id = request.json.get('product_id', None)
+    quantity = request.json.get('quantity', None)
+    user = user_service.get_user_by_public_id(get_jwt_identity())
+    product = user_service.get_product_by_id(product_id)
+
+    if product:
+        user_service.add_cart_by_product_id_and_quantity(product_id, quantity, user.id)
+
+        return jsonify({'msg': 'Successfully add to cart.', 'status': 200})
+    else:
+        return jsonify({'msg': 'Error add to cart', 'status': 204})

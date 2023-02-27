@@ -32,3 +32,8 @@ def api_logout():
 @jwt_required()
 def api_get_all_users():
     return api_user_controller.api_get_all_users()
+
+@app.route('/api/cart/add', methods = ['POST'])
+@jwt_required()
+def api_cart_add():
+    return api_user_controller.api_cart_add()
