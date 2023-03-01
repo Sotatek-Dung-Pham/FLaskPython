@@ -1,6 +1,5 @@
 flask
 flask-sqlalchemy
-mysql-python
 flask-jwt-extended
 Flask-Script
 flask-bcrypt
