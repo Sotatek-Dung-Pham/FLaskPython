@@ -4,14 +4,16 @@ from flask_bcrypt import check_password_hash
 from flask_jwt_extended import create_access_token, create_refresh_token, get_jwt_identity
 from flask import session
 from services import user_service
+from services import cart_service
+from services import product_service
 
 def web_index():
     cart = None
 
     if current_user.is_authenticated:
-        cart = user_service.count_item_cart(current_user.id)
+        cart = cart_service.count_cart_item(current_user.id)
 
-    products = user_service.get_all_product()
+    products = product_service.get_all_product()
 
     return render_template('index.html', products = products, cart = cart)
 
@@ -63,3 +65,15 @@ def web_signup():
         user_service.create_user_by_email_and_password(email, password)
 
         return redirect('/login')
+
+def web_cart():
+    if not current_user:
+        return render_template('login.html')
+
+    cart_items = cart_service.get_all_cart_item_isfalse_by_user_id(current_user.id)
+
+    total = 0
+    for cart_item in cart_items:
+        total += cart_item.Product.price * cart_item.Product.discount / 100
+
+    return render_template('cart.html', cart_items = cart_items, total = total)

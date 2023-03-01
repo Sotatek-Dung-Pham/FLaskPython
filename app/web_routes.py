@@ -7,7 +7,7 @@ def index():
 
 @app.route('/cart', methods = ['GET'])
 def cart():
-    return render_template('cart.html')
+    return web_user_controller.web_cart()
 
 @app.route('/login', methods = ['GET'])
 def login():

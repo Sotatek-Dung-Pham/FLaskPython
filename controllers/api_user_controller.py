@@ -2,6 +2,8 @@ from flask import jsonify, request
 from flask_bcrypt import check_password_hash
 from flask_jwt_extended import create_access_token, create_refresh_token, get_jwt_identity, get_jwt
 from services import user_service
+from services import product_service
+from services import cart_service
 from datetime import timedelta
 import redis
 
@@ -81,10 +83,10 @@ def api_cart_add():
     product_id = request.json.get('product_id', None)
     quantity = request.json.get('quantity', None)
     user = user_service.get_user_by_public_id(get_jwt_identity())
-    product = user_service.get_product_by_id(product_id)
+    product = product_service.get_product_by_id(product_id)
 
     if product:
-        user_service.add_cart_by_product_id_and_quantity(product_id, quantity, user.id)
+        cart_service.add_cart_by_product_id_and_quantity(product_id, quantity, user.id)
 
         return jsonify({'msg': 'Successfully add to cart.', 'status': 200})
     else:

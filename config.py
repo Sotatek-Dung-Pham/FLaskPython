@@ -27,12 +27,6 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql://dung:@localhost/mydata'
     TEMPLATES_AUTO_RELOAD = True
 
-    # Connect to databases
-    DB_NAME = 'mydata'
-    HOST_NAME = 'localhost'
-    USERNAME = 'dung'
-    PASSWORD = ''
-
 class ProductionConfig(Config):
     """
     Envirement production

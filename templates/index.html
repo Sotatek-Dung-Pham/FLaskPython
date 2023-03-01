@@ -4428,13 +4428,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				dataType: 'json',
 				headers: headers,
 				success: function(res) {
-					console.log(res, 1111)
 					// location.reload();
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					// if (textStatus == 'Unauthorized') {
-					// 	alert('custom message. Error: ' + errorThrown);
-					// }
 					alert("Status: " + textStatus); alert("Error: " + errorThrown); 
 				}
 			});
