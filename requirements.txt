@@ -5,3 +5,5 @@ Flask-Script
 flask-bcrypt
 flask_wtf
 flask-login
+Flask-Migrate
+redis
