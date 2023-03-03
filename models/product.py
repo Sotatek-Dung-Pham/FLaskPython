@@ -7,7 +7,7 @@ class Product(db.Model):
     name = db.Column(db.String(255), nullable=True)
     images = db.Column(db.String(255), nullable=True)
     price = db.Column(db.Float, nullable=True)
-    discount = db.Column(db.Float, nullable=True)
+    discount = db.Column(db.Float, nullable=False, default=0)
 
     def __repr__(self):
         return '<id {}>'.format(self.id)

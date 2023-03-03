@@ -7,4 +7,4 @@ flask_wtf
 flask-login
 Flask-Migrate
 redis
-psycopg2
+psycopg2-binary
