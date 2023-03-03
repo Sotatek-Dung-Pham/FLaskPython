@@ -24,7 +24,7 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours = 1)
     JWT_REFRESH_TOKEN_EXPIRES = timedelta(days = 30)
-    SQLALCHEMY_DATABASE_URI = 'postgresql://dung:@localhost/mydata'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://dung:@localhost:5432/mydata'
     TEMPLATES_AUTO_RELOAD = True
 
 class ProductionConfig(Config):
@@ -36,7 +36,7 @@ class ProductionConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours = 1)
     JWT_REFRESH_TOKEN_EXPIRES = timedelta(days = 30)
-    SQLALCHEMY_DATABASE_URI = 'postgresql://dungAws:@52.68.119.104/myawsdata'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://dungAws:@52.68.119.104:5433/myawsdata'
     TEMPLATES_AUTO_RELOAD = True
 
     DEBUG = False
